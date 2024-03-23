@@ -21,7 +21,6 @@ public class TestDAO {
 		ResultSet rs = null;
 		try {
 			synchronized(this) {
-				// phase 1. add "no" property -----------------------------
 				String sql ="SELECT no FROM feed ORDER BY no DESC LIMIT 1";
 				stmt = conn.prepareStatement(sql);
 				rs = stmt.executeQuery();
@@ -33,7 +32,6 @@ public class TestDAO {
 				JSONObject jsonobj = (JSONObject) parser.parse(jsonstr);
 				jsonobj.put("no", max + 1);
 				
-				// phase 2. add "user" property ------------------------------
 				String uid = jsonobj.get("id").toString();
 				
 				sql = "SELECT jsonstr FROM user WHERE id = ?";
@@ -50,7 +48,6 @@ public class TestDAO {
 				}
 				stmt.close(); rs.close();
 				
-				// phase 3. insert jsonobj to the table ------------------------
 				sql = "INSERT INTO feed(no, id, jsonstr) VALUES(?, ?, ?)";
 				stmt = conn.prepareStatement(sql);
 				stmt.setInt(1, max + 1);
