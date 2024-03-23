@@ -4,9 +4,9 @@
 		auth="Container"
 		type="javax.sql.DataSource"
 		driverClassName="com.mysql.jdbc.Driver"
-		url="jdbc:mysql://localhost:3306/annhj980?useSSL=false"
-		username="annhj980"
-		password="hyeonjune116!"
+		url="jdbc:mysql://localhost:3306/?useSSL=false"
+		username=""
+		password=""
 		maxTotal="32"
 		maxIdle="4"
 		maxWaitMillis="-1" />
